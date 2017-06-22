@@ -1,6 +1,9 @@
-\documentclass[a4paper,twocolumn]{article}
+\documentclass[a4paper]{article}
   \usepackage{accsupp}
+  \usepackage{fullpage}
   \usepackage{hanging}
+  \usepackage{ifthen}
+  \usepackage{multicol}
   \usepackage{tipa}
 
 
@@ -16,7 +19,7 @@
 
 \newcommand{\definition}[1]{#1}
 
-\newcommand{\letter}[1]{\section*{#1}\hangparas{0.5em}{1}}
+\newcommand{\letter}[1]{\bigskip\section*{#1}\hangparas{1em}{1}}
 
 \newcommand{\example}[2]{---\textit{#1}, #2}
 
@@ -25,16 +28,41 @@
 \newcommand{\igboizugbe}[1]{[Igbo: \textit{#1}.]}
 
 \newcommand{\hd}[1]{\d{\'#1}}
-\newcommand{\md}[1]{\d{\=#1}}
+%\newcommand{\md}[1]{\d{\=#1}}
+\newcommand{\md}[1]{\ifthenelse{\equal{#1}{i}}%
+                              {\d{\=\i}}%
+                              {\d{\=#1}}}
 \newcommand{\ld}[1]{\d{\`#1}}
 
 \newcommand{\h}[1]{\'#1}
-\newcommand{\m}[1]{\=#1}
+%\newcommand{\m}[1]{\=#1}
+\newcommand{\m}[1]{\ifthenelse{\equal{#1}{i}}%
+                              {\=\i}%
+                              {\=#1}}
 \renewcommand{\l}[1]{\`#1}
 
 \newcommand{\reference}[1]{\textbf{#1}}
 
 \newcommand{\+}{\textschwa}
+
+\newcommand{\termslot}{
+{\large \textbf{Term} (with pronunciation) \\
+
+{Part of Speech:} \\
+
+{Meaning:} \\
+
+{Example sentence:} \\
+
+{Translation:}} \\
+\bigskip
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Orba-English Dictionary}
+\emph{22 June 2017}
+
+\begin{multicols}{2}
 
   % \display     {}{}
   % \head        {}
@@ -53,6 +81,11 @@
   \head        {\h ab\h ak\h or\h o}
   \partofspeech{noun}
   \definition  {Ribs and spine (esp. when dressing a chicken).}
+
+  \display     {ab\+b\d o}{abubo}
+  \head        {\h ab\h\+b\hd o}
+  \partofspeech{noun}
+  \definition  {Ingredients.}
 
   \display     {ag\+ga}{aguga}
   \head        {\h ag\l\+g\l a}
@@ -110,7 +143,7 @@
   \head        {\l az\h\+}
   \partofspeech{noun}
   \igboizugbe  {\l az\hd u}
-  \definition  {The back side; behind}
+  \definition  {The back side; behind.}
 
 
 \letter{B}
@@ -124,7 +157,7 @@
   \head        {b\h ukp\l u\h o}
   \partofspeech{verb}
   \definition  {To tip over.}
-  \example     {I d\d o ya mbe \d om\+, o nwere ike ibukpuo}{If you leave it there, it might tip over}
+  \example     {I d\d o ya mbe \d om\+, o nwere ike ibukpuo}{if you leave it there, it might tip over}
 
   \display     {b\d u kn\d o}{bu nko}
   \head        {b\hd u \l nk\ld o}
@@ -135,16 +168,16 @@
   \head        {b\l\+}
   \partofspeech{verb}
   \igboizugbe  {b\hd u}
-  \definition  {To Be.}
+  \definition  {To be.}
 
 \letter{C}
   \display     {chete (n\+ mmad\d u) ihe}{chete nu mmadu ihe}
-  \head        {ch\l et\h e (n\+ mmad\d u) \h ih\h e}
+  \head        {ch\l et\h e \h ih\h e}
   \partofspeech{verb, transitive}
-  \definition  {To remember something; to remind someone of something.}
+  \definition  {To remember something; to remind someone (of something).}
 
   \display     {chete (n\+ mmad\d u) ohu}{chete nu mmadu ohu}
-  \head        {ch\l et\h e (n\+ mmad\d u) \h oh\h u}
+  \head        {ch\l et\h e \h oh\h u}
   \partofspeech{verb, intransitive}
   \definition  {to remind someone.}
 
@@ -163,14 +196,14 @@
   \head        {ch\ld it\h a}
   \partofspeech{verb}
   \definition  {to give someone a little bit of something.}
-  \example     {ch\d ita n\+ m \d opampa}{give me some of the peanuts.}
+  \example     {ch\d ita n\+ m \d opampa}{give me some  peanuts.}
 
 \letter{D}
-  \display     {D\d iany\d i}{Dianyi}
+  \display     {d\d iany\d i}{dianyi}
   \head        {D\hd i\m any\md i}
   \partofspeech{noun}
   \definition  {My guy (used only with close acquiantances).}
-  \example     {D\d iany\d i, wee mbe i n\d or\d id\+r\+ eshiteeshi?}{My guy, where've you been since?}
+  \example     {D\d iany\d i, wee mbe i n\d or\d id\+r\+ eshiteeshi?}{my guy, where've you been since?}
 
   \display     {d\+ch\d i}{duchi}
   \head        {d\h\+ch\ld i}
@@ -182,16 +215,11 @@
   \partofspeech{verb}
   \definition  {To see someone out.}
 
-  \display     {d\+f\+}{dufu}
-  \head        {d\h\+f\l e}
-  \partofspeech{verb}
-  \definition  {To see someone out.}
-
   \display     {d\+je (mmad\d u)}{duje mmadu}
   \head        {d\l\+j\h e}
   \partofspeech{verb}
   \igboizugbe  {d\l uj\h e}
-  \definition  {To accompany, to escort someone.}
+  \definition  {To accompany; to escort someone.}
 
   \display     {doz\+}{dozu}
   \head        {d\h oz\h\+}
@@ -203,7 +231,7 @@
   \display     {ebe al\+}{ebe alu}
   \head        {\h eb\h e \l al\l\+}
   \partofspeech{noun}
-  \definition  {plot of land}
+  \definition  {Plot of land.}
 
   \display     {ebekere}{ebekere}
   \head        {\l eb\l ek\l er\l e}
@@ -246,7 +274,7 @@
   \head        {\ld ech\ld ich\l a}
   \partofspeech{noun}
   \igboizugbe  {\l ach\ld ich\l a}
-  \definition  {Dish consisting mainly of dried cocoyam, mgb\+mgb\+, and palm oil.}
+  \definition  {Dish consisting of dried cocoyam, mgb\+mgb\+, and palm oil.}
 
   \display     {\d eg\+\+}{eguu}
   \head        {\hd eg\h \+\md\+}
@@ -255,8 +283,9 @@
   \definition  {Hunger.}
 
   \display     {\d ej\d o}{ejo}
-  \head        {\h nj\ld o}
+  \head        {\h ej\md o}
   \partofspeech{adjective}
+  \igboizugbe  {\h nj\ld o}
   \definition  {Evil}
   \example     {\d ej\d o mmad\d u}{a bad or evil person.}
 
@@ -283,7 +312,7 @@
   \head        {\hd ekp\l \+r\ld i}
   \partofspeech{noun}
   \igboizugbe  {\l akp\hd ir\hd i}
-  \definition  {Throat; Neck?}
+  \definition  {Throat.}
 
   \display     {\d ek\+k\+}{ekuku}
   \head        {\hd ek\l\+k\l\+}
@@ -331,7 +360,7 @@
   \head        {\ld es\hd o}
   \partofspeech{noun}
   \definition  {Respect.}
-  \example     {Ihe nw\l er\+ \d es\d o}{There's a respectful way to do things.}
+  \example     {ihe nw\l er\+ \d es\d o}{there's a respectful way to do things.}
 
   \display     {\d et\d o}{eto}
   \head        {\ld et\hd o}
@@ -339,8 +368,24 @@
   \igboizugbe  {\l at\hd o}
   \definition  {Three.}
 
+  \display     {\d ew\d ek\d u nch\d i}{eweku nchi}
+  \head        {\ld ew\ld ek\hd u \l nch\ld i}
+  \partofspeech{noun}
+  \definition  {Sagging cheeks.}
+
 
 \letter{F}
+  \display     {f\+}{fu}
+  \head        {f\l\+}
+  \partofspeech{verb}
+  \igboizugbe  {p\ld u\hd o}
+  \definition  {to go out.}
+
+  \display     {f\+ \d or\d ir\d i}{fu oriri}
+  \head        {f\l\+ \ld or\hd ir\hd i}
+  \partofspeech{verb}
+  \definition  {To go out on a visit.}
+
   \display     {f\+ta}{futa}
   \head        {f\l\+t\h a}
   \partofspeech{verb}
@@ -351,18 +396,18 @@
 
   \display     {g\+}{gu}
   \head        {g\h\+}
-  \partofspeech{noun}
+  \partofspeech{verb}
   \igboizugbe  {g\hd u\hd o}
   \definition  {To read.}
 
   \display     {g\+}{gu}
   \head        {g\h\+}
-  \partofspeech{verb}
+  \partofspeech{noun}
   \igboizugbe  {g\hd i}
   \definition  {You (singular).}
 
   \display     {g\+ (mmad\d u/ihe) \d eha}{gu}
-  \head        {g\h\+}
+  \head        {g\h\+ \hd eh\l a}
   \partofspeech{verb}
   \igboizugbe  {g\ld o\hd o \h ah\l a}
   \definition  {To name someone or something.}
@@ -373,10 +418,16 @@
   \partofspeech{adverb}
   \definition  {All the time.}
 
-  \display     {gbash\d i}{gbashi}
+  \display     {gbash\d i (akp\d ukw\d u)}{gbashi akpukwu}
   \head        {gb\l ash\hd i}
   \partofspeech{verb}
   \definition  {To take off (shoes)}
+
+  \display     {gbash\d i ike}{gbashi ike}
+  \head        {gb\l ash\ld i \h ik\m e}
+  \partofspeech{verb}
+  \igboizugbe  {gb\h as\h i\h e \h ik\h e}
+  \definition  {To be strong; to not let an adversary take the upper hand; to do something with vigour.}
 
   \display     {gbata}{gbata}
   \head        {gb\l at\h a}
@@ -411,11 +462,19 @@
 
 
 \letter{H}
+  \display     {ha}{ha}
+  \head        {h\l a}
+  \partofspeech{verb}
+  \igboizugbe  {h\l ar\l a}
+  \definition  {To be sized.}
+  \example     {\d O ha nwa ja.}{It's very little.}
+  \example     {I ha agaa?}{how big are you?}
+
   \display     {hebo}{hebo}
   \head        {h\h eb\h o}
   \partofspeech{verb}
   \definition  {For the weight or amount of something to reduce}
-  \example     {J\d iany\d i, ihebokwer\+; \d o b\+ n\d e nri ad\d ig\+ mbe \d om\+?}{My guy, you've lost weight; wasn't there food there?}
+  \example     {D\d iany\d i, ihebokwer\+; \d o b\+ n\d e nri ad\d ig\+ mbe \d om\+?}{My guy, you've lost weight; wasn't there food there? (lit. isn't there food there)}
 
   \display     {hee}{hee}
   \head        {h\h e\h e}
@@ -434,7 +493,7 @@
   \display     {\d ih\d o}{iho}
   \head        {\hd ih\md o}
   \partofspeech{noun}
-  \definition  {Snack made of egusi seeds, usually smoked dry.}
+  \definition  {Snack made of (usu. smoked dry) egusi seeds.}
 
   \display     {\d ikap\d e}{ikape}
   \head        {\hd ik\h ap\hd e}
@@ -487,7 +546,7 @@
 
 \letter{J}
   \display     {Ji \d enya ihere eme ihe}{Ji enya ihere eme ihe}
-  \head        {J\d i \h ny\h a \h ih\h er\m e \l em\h e \h ih\m e}
+  \head        {J\d i \hd eny\h a \h ih\h er\m e \l em\h e \h ih\m e}
   \partofspeech{verb}
   \definition  {to do something so as to avoid embarassment.}
 
@@ -502,15 +561,14 @@
   \display     {ko}{ko}
   \head        {k\l o}
   \partofspeech{verb}
-  \igboizugbe  {}
+  \igboizugbe  {z\h a\h a}
   \definition  {To swell up (e.g. head, figuratively; or belly, literally).}
 
 
 \letter{KP}
   \display     {kpa mmad\d u n'az\+}{kpa mmadu n'azu}
-  \head        {kpa (mmad\d u) n'\l az\h\+}
+  \head        {kp\h a mmad\d u n'\l az\h\+}
   \partofspeech{verb}
-  \igboizugbe  {}
   \definition  {to leave someone behind.}
 
   \display     {kpashwara}{kpashwara}
@@ -526,13 +584,13 @@
   \display     {kp\d ob\d e}{kpobe}
   \head        {kp\ld ob\hd e}
   \partofspeech{verb}
-  \definition  {To lock e.g. a door???}
+  \definition  {To lock e.g. a door}
 
   \display     {kp\+chi}{kpuchi}
   \head        {kp\l\+ch\h i}
   \partofspeech{verb}
   \igboizugbe  {m\l ech\h i}
-  \definition  {To close something e.g. a door65.}
+  \definition  {To close something e.g. a door.}
 
 
 \letter{KW}
@@ -608,6 +666,11 @@
   \display     {minyi na-eru}{minyi na-eru}
   \head        {m\h iny\m i na-\h er\l u}
   \definition  {Rain is coming.}
+
+  \display     {mkpa}{mkpa}
+  \head        {\h mkp\l a}
+  \partofspeech{noun}
+  \definition  {Event; occasion.}
 
   \display     {mkp\+sh\d i}{mkpushi}
   \head        {\l mkp\h\+sh\md i}
@@ -843,7 +906,7 @@
   \partofspeech{noun}
   \definition  {Slang term for foreign fish (e.g. croaker). So called because their mouths are ``sharp'' as compared to local fish.}
 
-  \display     {\ld onya}{onya}
+  \display     {\d onya}{onya}
   \head        {\ld ony\l a}
   \partofspeech{noun}
   \igboizugbe  {\h eny\l i}
@@ -929,7 +992,7 @@
   \head        {shw\hd och\hd u}
   \partofspeech{verb}
   \definition  {To stop a hole}
-  \example     {\d i shw\d ochur\+ nti.}{you stopped your ears.}
+  \example     {\d I shw\d ochur\+ nti.}{you stopped your ears.}
 
 
 \letter{T}
@@ -947,6 +1010,7 @@
   \display     {t\d o \d et\+}{to etu}
   \head        {t\hd o \ld et\l\+}
   \partofspeech{verb}
+  \igboizugbe  {t\ld o\hd o \h il\h u}
   \definition  {To cite a proverb.}
 
   \display     {t\d ol\d i t\d ol\d i}{toli toli}
@@ -959,6 +1023,12 @@
   \partofspeech{verb}
   \igboizugbe  {n\ld od\hd u \l al\l a}
   \definition  {Sit down.}
+
+  \display     {t\d ushw\d e\d e}{tushwee}
+  \head        {t\ld ushw\hd e\ld e}
+  \partofspeech{exclamation}
+  \igboizugbe  {t\ld uf\hd i\hd a}
+  \definition  {God forbid!}
 
   \display     {t\d ut\d ut\d u}{tututu}
   \head        {t\hd ut\hd ut\hd u}
@@ -1006,7 +1076,7 @@
 
 \letter{W}
   \display     {wee}{wee}
-  \head        {w\h e\h e}
+  \head        {w\h e\m e}
   \partofspeech{question}
   \igboizugbe  {\l eb\h e\h e}
   \definition  {Where?}
@@ -1032,12 +1102,12 @@
 
 \letter{Y}
   \display     {yach\d i}{yachi}
-  \head        {y\h ach\h i}
+  \head        {y\h ach\l i}
   \partofspeech{verb}
   \igboizugbe  {ch\ld igh\h a\h a}
   \definition  {To return somewhere.}
 
-  \display     {Ya \d esh\d i}{Ya eshi}
+  \display     {ya \d esh\d i}{Ya eshi}
   \head        {Y\h a \ld esh\hd i}
   \partofspeech{verb}
   \igboizugbe  {p\h agh\h a\h a}
@@ -1049,6 +1119,13 @@
   \partofspeech{verb}
   \igboizugbe  {b\h aw\h any\h e}
   \definition  {To increase.}
+
+  \display     {y\d osh\d i}{yoshi}
+  \head        {y\hd osh\hd i}
+  \partofspeech{verb}
+  \igboizugbe  {d\h a\h a \l mgb\l a}
+  \definition  {To feel faint; for something to lose structural integrity.}
+  \example     {ar\d ib\d o huu y\d or\+ ay\d o}{the ar\d ib\d o dough collapsed.}
 
 \letter{Z}
   \display     {z\+}{zu}
@@ -1063,7 +1140,7 @@
   % \igboizugbe  {}
   % \definition  {}
 
-\section*{Suffixes}
+\letter{Suffixes}
   \display{-deen\+}{-deenu}
   \head{-d\h e\m en\m\+}
   \definition{Still doing the verb. Synonymous with \emph{ka na-(verb)}.}
@@ -1083,4 +1160,28 @@
   \head{-zh\h i\h e}
   \definition{Do more of the verb.}
   \example{gotezhie}{buy more.}
+\end{multicols}
+
+\pagebreak
+
+\section*{Help Improve the Dictionary}
+Please note any mistakes or omissions that you've found below; include your name if you'd like to be credited in the final document. Send additional comments to \textbf{oge@nnadi.org}.
+
+\begin{multicols}{2}
+
+\termslot
+
+\termslot
+
+\termslot
+
+\termslot
+
+\termslot
+
+\termslot
+
+
+\end{multicols}
+\pagenumbering{gobble}
 \end{document}
